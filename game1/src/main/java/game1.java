@@ -35,7 +35,7 @@ public class game1 extends JFrame {
         add(button8);
         add(button9);
         setLayout(new GridLayout(3, 3));
-        setBounds(200, 200, 1000, 1000);
+        setBounds(20, 20, 800, 800);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -124,7 +124,7 @@ public class game1 extends JFrame {
     }
     public void winloss(){
         JOptionPane.showMessageDialog(null, "繼續遊戲", "恭喜獲勝",JOptionPane.WARNING_MESSAGE);
-        new PinBall().init();
+       move p = new move();
     }
     public static void main(String[] args){
         game1 g=new game1();
