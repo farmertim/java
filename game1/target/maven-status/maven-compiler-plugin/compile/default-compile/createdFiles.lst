@@ -1,2 +1,5 @@
 game1$control.class
 game1.class
+move.class
+move$ImagePanel.class
+move$timerTask.class
