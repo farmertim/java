@@ -38,6 +38,8 @@ public class move extends JFrame {
     ImageIcon FinalImage;
     ImageIcon FirstImage;
     ImageIcon First;
+    ImageIcon Second;
+    ImageIcon Three;
     Timer timer;
 
     public move() {
@@ -49,6 +51,9 @@ public class move extends JFrame {
         FinalImage = new ImageIcon("終點.jpg");
         FirstImage = new ImageIcon("起點.jpg");
         First = new ImageIcon("第一關.jpg");
+        Second=new ImageIcon("第二關.jpg");
+        Three=new ImageIcon("第三關.jpg");
+        
         bt.setBounds(2000, 2000, 50, 50);
   this.setTitle("HU WEI REN");
         this.setSize(3000, 3000);
@@ -80,7 +85,17 @@ public class move extends JFrame {
                         check=1;
                        a=roley;
                     game1  g = new game1();
-                    }else if(roley==1450){
+                    }else if(roley == 800){
+                         MoreOrLess m=new MoreOrLess();
+                      
+                        a=roley;
+                    }
+                    else if(roley == 1200){
+                         PinBall p=new PinBall();
+                        p.init();
+                     a=roley;
+                    }
+                    else if(roley==1450){
                       JOptionPane.showMessageDialog(null, "結束遊戲", "結束遊戲", JOptionPane.WARNING_MESSAGE);
                     }
                     
@@ -129,10 +144,12 @@ public class move extends JFrame {
             g.drawLine(100, 100, 1500, 100);
             g.drawImage(First.getImage(), 400, 60, 80, 80, null);
             g.drawImage(people.getImage(), rolex, 500, null);
-            g.drawImage(people2.getImage(), roley, 50, null);
+            g.drawImage(people2.getImage(), roley, 50,80,80, null);
             g.drawImage(FinalImage.getImage(), 1450, 60, 50, 70, null);
             g.drawImage(FirstImage.getImage(), 160, 90, 30, 30, null);
             g.drawImage(First.getImage(), 400, 60, 80, 80, null);
+            g.drawImage(Second.getImage(),800,60,80,80,null);
+            g.drawImage(Three.getImage(),1200,60,80,80,null);
         }
     }
 }
