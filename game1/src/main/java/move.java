@@ -46,7 +46,7 @@ public class move extends JFrame {
         ImagePanel panel = new ImagePanel();
         panel.setBounds(100, 100, 30, 30);
         Button bt = new Button();
-        people = new ImageIcon("下載.jpg");
+    
         people2 = new ImageIcon("派大星.jpg");
         FinalImage = new ImageIcon("終點.jpg");
         FirstImage = new ImageIcon("起點.jpg");
@@ -143,7 +143,7 @@ public class move extends JFrame {
             //role.paintIcon(this, g, role_x, 50);
             g.drawLine(100, 100, 1500, 100);
             g.drawImage(First.getImage(), 400, 60, 80, 80, null);
-            g.drawImage(people.getImage(), rolex, 500, null);
+          
             g.drawImage(people2.getImage(), roley, 50,80,80, null);
             g.drawImage(FinalImage.getImage(), 1450, 60, 50, 70, null);
             g.drawImage(FirstImage.getImage(), 160, 90, 30, 30, null);
