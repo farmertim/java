@@ -33,7 +33,7 @@ public class move extends JFrame {
 
   static int a=0;
     int rolex = 0, count = 0, roley = a, count1 = 0,check=0;
-    ImageIcon people;
+    ImageIcon[] people;
     ImageIcon people2;
     ImageIcon FinalImage;
     ImageIcon FirstImage;
@@ -46,7 +46,9 @@ public class move extends JFrame {
         ImagePanel panel = new ImagePanel();
         panel.setBounds(100, 100, 30, 30);
         Button bt = new Button();
-    
+    for(int i=0;i<5;i++){
+    people[i]=new ImageIcon("人"+(i+1)+".jpg");
+    }
         people2 = new ImageIcon("派大星.jpg");
         FinalImage = new ImageIcon("終點.jpg");
         FirstImage = new ImageIcon("起點.jpg");
