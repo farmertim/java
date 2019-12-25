@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.awt.Font;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class MoreOrLess extends JFrame {
@@ -68,7 +69,8 @@ public class MoreOrLess extends JFrame {
         else{
             this.getAnsArea().append(input_ans + " 你答對了!\n");
              this.setVisible(false);
-            game1 g=new game1();
+              JOptionPane.showMessageDialog(null, "繼續遊戲", "恭喜獲勝",JOptionPane.WARNING_MESSAGE);
+           move m=new move();
         }
         // 再把答案欄清空
         this.getInput().setText("");

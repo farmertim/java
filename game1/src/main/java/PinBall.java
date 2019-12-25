@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Random;
+import javax.swing.JOptionPane;
  
 import javax.swing.Timer;
  
@@ -109,6 +110,9 @@ public class PinBall {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new PinBall().init();
+                
+                 JOptionPane.showMessageDialog(null, "繼續遊戲", "恭喜獲勝",JOptionPane.WARNING_MESSAGE);
+                move o=new move();
 	}
 	
 	class MyCanvas extends Canvas

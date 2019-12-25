@@ -124,6 +124,7 @@ public class game1 extends JFrame {
     }
     public void winloss(){
         JOptionPane.showMessageDialog(null, "繼續遊戲", "恭喜獲勝",JOptionPane.WARNING_MESSAGE);
+         
        move p = new move();
     }
     public static void main(String[] args){

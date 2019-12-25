@@ -31,14 +31,14 @@ import java.util.TimerTask;
 
 public class move extends JFrame {
 
-    static int a = 0,k=0;
+    static int a = 0, k = 0;
     int rolex = 0, count = 0, roley = a, count1 = 0, check = 0;
     ImageIcon people1;
     ImageIcon people2;
     ImageIcon people3;
     ImageIcon people4;
     ImageIcon people5;
-  
+
     ImageIcon FinalImage;
     ImageIcon FirstImage;
     ImageIcon First;
@@ -51,13 +51,10 @@ public class move extends JFrame {
         panel.setBounds(100, 100, 30, 30);
         Button bt = new Button();
 
-      
         people1 = new ImageIcon("人1.jpg");
-          people2 = new ImageIcon("人2.jpg");
-            people3 = new ImageIcon("人3.jpg");
-              people4 = new ImageIcon("人4.jpg");
-             
-       
+        people2 = new ImageIcon("人2.jpg");
+        people3 = new ImageIcon("人3.jpg");
+        people4 = new ImageIcon("人4.jpg");
 
         FinalImage = new ImageIcon("終點.jpg");
         FirstImage = new ImageIcon("起點.jpg");
@@ -90,7 +87,7 @@ public class move extends JFrame {
                 if (roley <= 1500) {
                     a = roley;
                     roley += by;
-         k++;
+                    k++;
                     if (roley == 160) {
                         JOptionPane.showMessageDialog(null, "開始遊戲", "歡迎進入", JOptionPane.WARNING_MESSAGE);
                     } else if (roley == 400) {
@@ -98,13 +95,13 @@ public class move extends JFrame {
                         a = roley;
                         game1 g = new game1();
                     } else if (roley == 800) {
+                         a = roley;
                         MoreOrLess m = new MoreOrLess();
-
-                        a = roley;
                     } else if (roley == 1200) {
+                         a = roley;
                         PinBall p = new PinBall();
                         p.init();
-                        a = roley;
+                       
                     } else if (roley == 1450) {
                         JOptionPane.showMessageDialog(null, "結束遊戲", "結束遊戲", JOptionPane.WARNING_MESSAGE);
                     }
@@ -143,21 +140,22 @@ public class move extends JFrame {
             //role.paintIcon(this, g, role_x, 50);
             g.drawLine(100, 100, 1500, 100);
             g.drawImage(First.getImage(), 400, 60, 80, 80, null);
-            if(k==4){
-            k=0;
+            if (k == 4) {
+                k = 0;
             }
-         if(k==0){
-            g.drawImage(people1.getImage(), roley, 50, 80, 80, null);
-         }  if(k==1){
-            g.drawImage(people2.getImage(), roley, 50, 80, 80, null);
-         }
-           if(k==2){
-            g.drawImage(people3.getImage(), roley, 50, 80, 80, null);
-         }
-             if(k==3){
-            g.drawImage(people4.getImage(), roley, 50, 80, 80, null);
-         }  
-         
+            if (k == 0) {
+                g.drawImage(people1.getImage(), roley, 50, 80, 80, null);
+            }
+            if (k == 1) {
+                g.drawImage(people2.getImage(), roley, 50, 80, 80, null);
+            }
+            if (k == 2) {
+                g.drawImage(people3.getImage(), roley, 50, 80, 80, null);
+            }
+            if (k == 3) {
+                g.drawImage(people4.getImage(), roley, 50, 80, 80, null);
+            }
+
             g.drawImage(FinalImage.getImage(), 1450, 60, 50, 70, null);
             g.drawImage(FirstImage.getImage(), 160, 90, 30, 30, null);
             g.drawImage(First.getImage(), 400, 60, 80, 80, null);
