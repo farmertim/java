@@ -68,9 +68,15 @@ public class move extends JFrame {
         this.setLocation(0, 0);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-        ImagePanel ip = new ImagePanel();
+      
+        runfunction();
+
+        // timer.schedule(new timerTask(),1000,10);
+    }
+    public  void runfunction(){
+          ImagePanel ip = new ImagePanel();
         this.add(ip);
-        this.addKeyListener(new KeyAdapter() {
+    this.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
                 int by = 0;
                 int bu = 0;
@@ -93,6 +99,7 @@ public class move extends JFrame {
                     } else if (roley == 400) {
                         check = 1;
                         a = roley;
+                        
                         game1 g = new game1();
                     } else if (roley == 800) {
                          a = roley;
@@ -100,7 +107,7 @@ public class move extends JFrame {
                     } else if (roley == 1200) {
                          a = roley;
                         PinBall p = new PinBall();
-                        p.init();
+                        
                        
                     } else if (roley == 1450) {
                         JOptionPane.showMessageDialog(null, "結束遊戲", "結束遊戲", JOptionPane.WARNING_MESSAGE);
@@ -119,10 +126,7 @@ public class move extends JFrame {
         });
 
         timer = new Timer();
-
-        // timer.schedule(new timerTask(),1000,10);
     }
-
     public static void main(String[] args) {
 
         move p = new move();

@@ -20,10 +20,12 @@ public class game1 extends JFrame {
     control button7=new control();
     control button8=new control();
     control button9=new control();
+    public  static int count=0;
     /**
      * Creates new form game1
      */
     public game1() {
+        if(count==0){
         initComponents();
         add(button1);
         add(button2);
@@ -38,6 +40,10 @@ public class game1 extends JFrame {
         setBounds(20, 20, 800, 800);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+        else{
+        
+        }
     }
 
     /**
@@ -124,12 +130,12 @@ public class game1 extends JFrame {
     }
     public void winloss(){
         JOptionPane.showMessageDialog(null, "繼續遊戲", "恭喜獲勝",JOptionPane.WARNING_MESSAGE);
-         
-       move p = new move();
+         count++;
+         move m=new move();
+       
+       
     }
-    public static void main(String[] args){
-        game1 g=new game1();
-    }
+    
     // Variables declaration - do not modify
     // End of variables declaration
 }

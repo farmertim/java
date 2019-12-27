@@ -44,8 +44,8 @@ public class PinBall {
 	Timer timer;
 	private boolean isLose = false;
 	private MyCanvas tableArea = new MyCanvas();
-	
-	public void init()
+	//public void init
+	public PinBall()
 	{
 		tableArea.setPreferredSize(new Dimension(TABLE_WIDTH, TABLE_HEIGHT));
 		f.add(tableArea);
@@ -81,6 +81,8 @@ public class PinBall {
 					timer.stop();
 					isLose = true;
 					tableArea.repaint();
+                                          JOptionPane.showMessageDialog(null, "繼續遊戲", "continue",JOptionPane.WARNING_MESSAGE);
+                                          move o=new move();
 				}
 				else if( ballY <= 0 || 
 						(ballY >= RACKET_Y - BALL_SIZE
@@ -109,10 +111,11 @@ public class PinBall {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new PinBall().init();
+		
                 
-                 JOptionPane.showMessageDialog(null, "繼續遊戲", "恭喜獲勝",JOptionPane.WARNING_MESSAGE);
+               
                 move o=new move();
+                
 	}
 	
 	class MyCanvas extends Canvas
