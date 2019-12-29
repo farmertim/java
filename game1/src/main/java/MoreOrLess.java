@@ -69,8 +69,9 @@ public class MoreOrLess extends JFrame {
         else{
             this.getAnsArea().append(input_ans + " 你答對了!\n");
              this.setVisible(false);
+              move m=new move();
               JOptionPane.showMessageDialog(null, "繼續遊戲", "恭喜獲勝",JOptionPane.WARNING_MESSAGE);
-           move m=new move();
+          
         }
         // 再把答案欄清空
         this.getInput().setText("");
@@ -83,7 +84,7 @@ public class MoreOrLess extends JFrame {
         this.getAnsArea().append("答案是:" + this.ans + "\n");
         this.getInput().setText("");
         this.getInput().requestFocus();
-    }
+    } move m=new move();
 
     /**
      * This method initializes this
@@ -91,10 +92,12 @@ public class MoreOrLess extends JFrame {
      * @return void
      */
     private void initialize() {
-        this.setSize(300, 200);
+        
+        this.setSize(1000, 1000);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(screenSize.width / 2 - this.getWidth() / 2,
-                screenSize.height / 2 - this.getHeight() / 2);
+        this.setLocation(0, 0);
+//        this.setLocation(screenSize.width / 2 - this.getWidth() / 2,
+//                screenSize.height / 2 - this.getHeight() / 2);
         this.setResizable(false);
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setContentPane(getJContentPane());
@@ -130,8 +133,8 @@ public class MoreOrLess extends JFrame {
         if (input == null) {
             javax.swing.text.NumberFormatter mf2 = null;
             mf2 = new javax.swing.text.NumberFormatter();
-            mf2.setMaximum(new Integer(maxInt));
-            mf2.setMinimum(new Integer(1));
+//            mf2.setMaximum(new Integer(maxInt));
+//            mf2.setMinimum(new Integer(1));
             input = new JFormattedTextField(mf2);
             input.setBounds(new Rectangle(95, 2, 97, 78));
             input.setFont(new Font("Dialog", Font.PLAIN, 72));

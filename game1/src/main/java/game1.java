@@ -37,7 +37,7 @@ public class game1 extends JFrame {
         add(button8);
         add(button9);
         setLayout(new GridLayout(3, 3));
-        setBounds(20, 20, 800, 800);
+        setBounds(0, 0, 3000, 3000);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }

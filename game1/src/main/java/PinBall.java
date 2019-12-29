@@ -22,6 +22,7 @@ public class PinBall {
 	 * @param args
 	 */
 	//桌面长宽
+    public static int count=0;
 	private final int TABLE_WIDTH = 300;
 	private final int TABLE_HEIGHT = 400;
 	//球拍的垂直位置
@@ -74,22 +75,29 @@ public class PinBall {
 				if( ballX <= 0 || ballX >= TABLE_WIDTH-BALL_SIZE )
 				{
 					xSpeed = -xSpeed;
+                                        count++;
 				}
 				if( ballY>= RACKET_Y - BALL_SIZE &&
 						(ballX < racketX || ballX > racketX + RACKET_WIDTH))
 				{
-					timer.stop();
+					 timer.stop();
 					isLose = true;
 					tableArea.repaint();
-                                          JOptionPane.showMessageDialog(null, "繼續遊戲", "continue",JOptionPane.WARNING_MESSAGE);
-                                          move o=new move();
+                                           PinBall p=new PinBall();
+                                      
 				}
 				else if( ballY <= 0 || 
 						(ballY >= RACKET_Y - BALL_SIZE
 						&& ballX > racketX && ballX <= racketX + RACKET_WIDTH) )
 				{
 					ySpeed = -ySpeed;
+                                        count++;
 				}
+                                if(count==10){
+                                    timer.stop();
+                                 JOptionPane.showMessageDialog(null, "繼續遊戲", "continue",JOptionPane.WARNING_MESSAGE);
+                                           move o=new move();
+                                }
 				ballY += ySpeed;
 				ballX += xSpeed;
 				tableArea.repaint();
@@ -111,10 +119,10 @@ public class PinBall {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		PinBall p=new PinBall();
                 
                
-                move o=new move();
+               
                 
 	}
 	

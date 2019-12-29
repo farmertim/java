@@ -136,7 +136,7 @@ public class move extends JFrame {
 
         ImagePanel() {
 
-            this.setBackground(Color.green);
+            this.setBackground(Color.WHITE);
         }
 
         protected void paintComponent(Graphics g) {
