@@ -14,6 +14,15 @@ import java.awt.Graphics;
 public abstract class BasicGame implements Important{
     protected int x, y;
     protected int state;
+    protected boolean win;
+    protected TAG tag;
+    public BasicGame(TAG tag){
+        win = false;
+        this.tag = tag;
+    }
+    public TAG getTag(){
+        return tag;
+    }
     public void setX(int x){
         this.x = x;
     }
@@ -25,5 +34,11 @@ public abstract class BasicGame implements Important{
     }
     public void logic(){
         
+    }
+    public void setWin(boolean stat){
+        win = stat;
+    }
+    public boolean getWin(){
+        return win;
     }
 }

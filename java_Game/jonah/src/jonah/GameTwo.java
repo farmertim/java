@@ -13,10 +13,11 @@ import java.awt.Graphics;
  * @author 胡維仁
  */
 public class GameTwo extends BasicGame{
-    public GameTwo(){
+    public GameTwo(TAG tag){
+        super(tag);
         System.out.println("GameTwo");
-        this.x = 400;
-        this.y = 400;
+        this.x = 100;
+        this.y = 100;
         this.state = 2;
     }
     public void logic(){

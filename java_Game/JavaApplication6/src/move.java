@@ -30,7 +30,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class move extends JFrame {
-
+    public static int WIDTH = 1000, HEIGHT = WIDTH/12*9;
     static int a = 0, k = 0,ch=0;
     int rolex = 0, count = 0, roley = a, count1 = 0, check = 0;
     ImageIcon people1;
@@ -72,13 +72,13 @@ public class move extends JFrame {
         Second = new ImageIcon("第二關.jpg");
         Three = new ImageIcon("第三關.jpg");
 
-        bt.setBounds(2000, 2000, 50, 50);
+        bt.setBounds(100, 100, 50, 50);
         this.setTitle("HU WEI REN");
-        this.setSize(3000, 3000);
+        this.setSize(1000, 1000);
         this.setLocation(0, 0);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-      
+        this.setResizable(false);
         runfunction();
 
         // timer.schedule(new timerTask(),1000,10);
@@ -121,7 +121,7 @@ public class move extends JFrame {
         add(button8);
         add(button9);
         setLayout(new GridLayout(3, 3));
-        setBounds(0, 0, 3000, 3000);
+        setBounds(0, 0, 1000, 1000);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         }
@@ -160,6 +160,9 @@ public class move extends JFrame {
     class control extends JButton implements ActionListener{
         public control(){
             this.addActionListener(this);
+            this.setSize(100, 100);
+            Dimension dim = new Dimension(100,100);
+            this.setPreferredSize(dim);
         }
         @Override
         public void actionPerformed(ActionEvent e) {
