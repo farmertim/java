@@ -108,6 +108,18 @@ public class farmer extends Canvas{
                                         gamelist.add(new GameOne(TAG.G1));
                                           farmer.page = PAGE.Game1;
                                    }
+                                   else if(move.a==500){
+                                    move.a+=5;
+                                   move.k++;
+                                       System.out.println("6666666");
+                                       if(gamelist.size() != 0){
+                                       gamelist.remove(0);
+                                        System.out.println("NORemoveGame3");
+                                       }
+                                        gamelist.add(new GameThree(farmer.this,TAG.G3));//this是只內部類別 所以要用farmer.this
+                                          farmer.page = PAGE.Game3;
+                                          System.out.println("Game3");
+                                   }
                                }
                              }
                             if( farmer.page == PAGE.Game1){
@@ -131,19 +143,19 @@ public class farmer extends Canvas{
                                     
                                 }
                             }
-                            else if (farmer.page == PAGE.Game1){
+                            else if (farmer.page == PAGE.Game3){
                                 if( gamelist.get(0).getWin()){
                                     System.out.println("move to gametwo");
                                     if(gamelist.size() == 0){
-                                        gamelist.add(new GameTwo(TAG.G2));
+                                        gamelist.add(new GameTwo(TAG.G3));
                                     
                                     }
                                     else{
                                         gamelist.remove(0);
-                                        gamelist.add(new GameTwo(TAG.G2));
+                                        gamelist.add(new GameTwo(TAG.G3));
                                       
                                     }
-                                    farmer.page = PAGE.Game2;
+                                    farmer.page = PAGE.Game3;
                                   
                                 }
                             }
@@ -175,12 +187,11 @@ public class farmer extends Canvas{
     }
     public void logic(){
         if(farmer.page==PAGE.move){
-         
                  if( gamelist.size() == 0){
                 gamelist.add(new move(this,TAG.m));
                 System.out.println(" create new game1");
             }
-            else if(gamelist.get(0).getTag()==TAG.G1){
+            else if(gamelist.get(0).getTag()!=TAG.m){
                 gamelist.remove(0);
                 gamelist.add(new move(this,TAG.m));
                 System.out.println(" create game1");
@@ -196,7 +207,7 @@ public class farmer extends Canvas{
                 gamelist.add(new GameOne(TAG.G1));
                 System.out.println(" create new game1");
             }
-            else if(gamelist.get(0).getTag()==TAG.G2){
+            else if(gamelist.get(0).getTag()!=TAG.G1){
                 gamelist.remove(0);
                 gamelist.add(new GameOne(TAG.G1));
                 System.out.println(" create game1");
@@ -211,10 +222,25 @@ public class farmer extends Canvas{
                 gamelist.add(new GameTwo(TAG.G2));
                 System.out.println(" create new game1");
             }
-            else if(gamelist.get(0).getTag()==TAG.G1){
+            else if(gamelist.get(0).getTag()!=TAG.G2){
                 gamelist.remove(0);
                 gamelist.add(new GameTwo(TAG.G2));
                 System.out.println(" create game1");
+            }
+            else{
+                // TODO
+                //System.out.println("XXX");
+            }  
+        }
+         else if(farmer.page == PAGE.Game3){
+             if( gamelist.size() == 0){
+                gamelist.add(new GameThree(this,TAG.G3));
+                System.out.println(" create new game3");
+            }
+            else if(gamelist.get(0).getTag()!=TAG.G3 ){
+                gamelist.remove(0);
+                gamelist.add(new GameThree(this,TAG.G3));
+                System.out.println(" create game3");
             }
             else{
                 // TODO
