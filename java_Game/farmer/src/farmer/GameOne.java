@@ -1,5 +1,5 @@
 
-package jonah;
+package farmer;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -29,7 +29,10 @@ public class GameOne extends BasicGame{
     }
     public void setClick(int index){
         if(index==9){
-            click[index] = 'E';
+            for( int i = 0; i < click.length; i++){
+                click[i] = 'q';
+            }
+            System.out.println("Clear");
         }
         else if(index==10){
          click[index] = 'W';
@@ -41,6 +44,7 @@ public class GameOne extends BasicGame{
         }
     }
     public void display(Graphics g){
+        //System.out.println("display click 9");
         g.setColor(Color.BLACK);
         g.fillRect(0,0,1000,800);
         g.setColor(Color.RED);
@@ -108,7 +112,7 @@ public class GameOne extends BasicGame{
             g.drawString("X", 590, 400);
         }
               
-               if( click[6] =='O'){
+            if( click[6] =='O'){
             g.drawString("O", 290, 550);
         }
         else if(click[6]=='X'){
@@ -126,12 +130,7 @@ public class GameOne extends BasicGame{
         else if(click[8]=='X'){
             g.drawString("X", 590, 550);
         }
-        else if(click[9]=='E'){
-            for(int i = 0; i < click.length; i++){
-                click[i] = 'q';
-            }
-            System.out.println("Clear");
-        }
+      
         
             if(click[0]==click[1]&&click[1]==click[2]&&click[0]=='X'||click[0]==click[1]&&click[1]==click[2]&&click[0]=='O'){
               win(g);
@@ -187,11 +186,11 @@ public class GameOne extends BasicGame{
             click[i] = 'q';
         }
 */
-        Font fnt1 = new Font(null, 1, 150);
+        Font fnt1 = new Font(null, 1, 170);
         g.setColor(Color.RED);
         g.setFont(fnt1);
-        g.drawString("恭",300,300);
-        g.drawString("喜",600,300);
+        g.drawString("恭",250,300);
+        g.drawString("喜",550,300);
         this.setWin(true);
         wi=1;
         //Thread.sleep(5000);
@@ -201,7 +200,7 @@ public class GameOne extends BasicGame{
            g.drawString("next>>",780,580);
            if(click[10]=='W'){
                System.out.println("123");
-        Jonah.setPage(PAGE.move);//Game2
+        farmer.setPage(PAGE.move);//Game2
            }
     }
 }

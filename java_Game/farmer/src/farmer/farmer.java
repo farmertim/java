@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jonah;
+package farmer;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
@@ -20,14 +20,14 @@ import javax.swing.JFrame;
  *
  * @author 胡維仁
  */
-public class Jonah extends Canvas{
+public class farmer extends Canvas{
     Window wind;
     BasicGame game;
     public static PAGE page;
     public static TAG tag;
     public static int score = 0;
     public ArrayList<BasicGame>gamelist = new ArrayList<BasicGame>();
-    public Jonah(){
+    public farmer(){
         page = PAGE.move;
         wind = new Window(this);
         MouseAdapter ma = new MouseAdapter(){
@@ -35,10 +35,10 @@ public class Jonah extends Canvas{
                 int xx = e.getX();
                 int yy = e.getY();
                 System.out.println("xx "+xx+" yy" + yy);
-                if( Jonah.page == PAGE.move){
+                if( farmer.page == PAGE.move){
                     move bg = (move)gamelist.get(0);
                 }
-                else if( Jonah.page == PAGE.Game1){
+                else if( farmer.page == PAGE.Game1){
                     GameOne bg = (GameOne)gamelist.get(0);
                     if(xx>250&&xx<400&&yy>150&&yy<300){
                         System.out.println("b1");
@@ -91,33 +91,33 @@ public class Jonah extends Canvas{
 			{
                             System.out.println("Key " + ke.getKeyCode());
                             System.out.println("KeyEvent " + KeyEvent.VK_D);
-                             if( Jonah.page == PAGE.move){
+                             if( farmer.page == PAGE.move){
                                   if( ke.getKeyCode() == KeyEvent.VK_RIGHT){
-                                   move.a+=2;
+                                   move.a+=5;
                                    move.k++;
                                    if(move.a>=900){
                                    move.a=900;
                                    }
-                                   else if(move.a==270){
-                                       move.a+=2;
+                                   else if(move.a==250){
+                                       move.a+=5;
                                    move.k++;
                                        System.out.println("6666666");
                                        if(gamelist.size() != 0){
                                        gamelist.remove(0);
                                        }
                                         gamelist.add(new GameOne(TAG.G1));
-                                          Jonah.page = PAGE.Game1;
+                                          farmer.page = PAGE.Game1;
                                    }
                                }
                              }
-                            if( Jonah.page == PAGE.Game1){
+                            if( farmer.page == PAGE.Game1){
                               
                             }
-                            else  if(Jonah.page == PAGE.Move){
+                            else  if(farmer.page == PAGE.Move){
                                 if( ke.getKeyCode() == KeyEvent.VK_D){
-                                    Jonah.score++;
-                                    System.out.println(Jonah.score);
-                                    if( Jonah.score == 5){
+                                    farmer.score++;
+                                    System.out.println(farmer.score);
+                                    if( farmer.score == 5){
                                         System.out.println("move to gameone");
                                     if(gamelist.size() == 0)
                                         gamelist.add(new GameOne(TAG.G1));
@@ -126,12 +126,12 @@ public class Jonah extends Canvas{
                                         gamelist.add(new GameOne(TAG.G1));
                                         
                                     }
-                                    Jonah.page = PAGE.Game1;
+                                    farmer.page = PAGE.Game1;
                                     }
                                     
                                 }
                             }
-                            else if (Jonah.page == PAGE.Game1){
+                            else if (farmer.page == PAGE.Game1){
                                 if( gamelist.get(0).getWin()){
                                     System.out.println("move to gametwo");
                                     if(gamelist.size() == 0){
@@ -143,7 +143,7 @@ public class Jonah extends Canvas{
                                         gamelist.add(new GameTwo(TAG.G2));
                                       
                                     }
-                                    Jonah.page = PAGE.Game2;
+                                    farmer.page = PAGE.Game2;
                                   
                                 }
                             }
@@ -174,7 +174,7 @@ public class Jonah extends Canvas{
         bs.show();
     }
     public void logic(){
-        if(Jonah.page==PAGE.move){
+        if(farmer.page==PAGE.move){
          
                  if( gamelist.size() == 0){
                 gamelist.add(new move(this,TAG.m));
@@ -187,11 +187,11 @@ public class Jonah extends Canvas{
             }
             else{
                 // TODO
-                System.out.println("XXX");
+                //System.out.println("XXX");
             }
             
         }
-        else if( Jonah.page == PAGE.Game1){
+        else if( farmer.page == PAGE.Game1){
             if( gamelist.size() == 0){
                 gamelist.add(new GameOne(TAG.G1));
                 System.out.println(" create new game1");
@@ -203,10 +203,10 @@ public class Jonah extends Canvas{
             }
             else{
                 // TODO
-                System.out.println("XXX");
+                //System.out.println("XXX");
             }  
         }
-        else if(Jonah.page == PAGE.Game2){
+        else if(farmer.page == PAGE.Game2){
              if( gamelist.size() == 0){
                 gamelist.add(new GameTwo(TAG.G2));
                 System.out.println(" create new game1");
@@ -218,20 +218,20 @@ public class Jonah extends Canvas{
             }
             else{
                 // TODO
-                System.out.println("XXX");
+                //System.out.println("XXX");
             }  
         }
     }
     public static void main(String[] args) {
         // TODO code application logic here
-        Jonah jonah = new Jonah();
+        farmer jonah = new farmer();
         while( true ){
             jonah.logic();
             jonah.display();
         }
     }
     public static void setPage(PAGE page){
-        Jonah.page = page;
+        farmer.page = page;
     }
     
 }

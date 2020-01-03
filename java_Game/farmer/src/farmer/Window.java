@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jonah;
+package farmer;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
@@ -14,8 +14,8 @@ import javax.swing.JFrame;
  * @author 胡維仁
  */
 public class Window extends Canvas{
-    public Window(Jonah jonah){
-        JFrame frame = new JFrame("Jonah Game");
+    public Window(farmer jonah){
+        JFrame frame = new JFrame("farmer Game");
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension dim = new Dimension(1000,800);//緯度

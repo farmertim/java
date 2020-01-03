@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jonah;
+package farmer;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -27,8 +27,8 @@ public class move extends BasicGame{
     ImageIcon First;
     ImageIcon Second;
     ImageIcon Three;
-    Jonah window;
-    public move(Jonah jonah, TAG tag){
+    farmer window;
+    public move(farmer jonah, TAG tag){
         super(tag);
         this.window = jonah;
         people1 = new ImageIcon("Animation/人1.jpg");
@@ -43,7 +43,7 @@ public class move extends BasicGame{
         Three = new ImageIcon("Animation/第三關.jpg");
     }
     public void display(Graphics g){
-        System.out.println("32323232");
+        //System.out.println("32323232");
         g.setColor(Color.WHITE);
         g.fillRect(0,0,1000,800);
       
