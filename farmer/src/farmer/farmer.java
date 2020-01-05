@@ -21,25 +21,6 @@ import javax.swing.JFrame;
  * @author 胡維仁
  */
 public class farmer extends Canvas{
-       public static int mx=-1;
-       public static int my=-1;
-    long times = 0;
-    int prepage = 0;
-    int page1 = 0;
-    int onpic = 0;
-    int preonpic = 0;
-    int g3preclick = -1;
-    int g3click = -1;
-   // int g3drawX = -1;
-   // int g3drawY = -1;
-    boolean g1haswin = false;
-    boolean g2haswin = false;
-    boolean g3haswin = false;
-   // int[][] game1 = {{0,0,0},{0,0,0},{0,0,0}};
-   // int[][] game3 = {{0,0,0},{0,0,0},{0,0,0}};
-    int game1win = 0;
-    boolean g3win = false;
-    boolean deuce = false;
     Window wind;
     BasicGame game;
     public static PAGE page;
@@ -103,95 +84,6 @@ public class farmer extends Canvas{
                        bg.setClick(10);
                       }
                 }
-                  else if( farmer.page == PAGE.Game4){
-                         finalgame bg = (finalgame)gamelist.get(0);
-             mx = e.getX();
-             my = e.getY();
-            if(mx>=1070 && my>=445 && mx<=1170 && my<= 495)
-            {
-                times = 0;
-                page1 = 0;
-                prepage = 0;
-               // repaint();
-            }
-            mx -= 450;
-            my -= 120;
-            if(mx>=0 && my>=0 && mx<=300 && my<=300)
-            {
-                mx/=100;
-                my/=100;
-                g3click = finalgame.game3[mx][my];
-                if(g3click != g3preclick)
-                {
-                    g3preclick = g3click;
-                    finalgame.g3drawX = mx;
-                    finalgame.g3drawY = my;
-                   // repaint();
-                }
-                else
-                {
-                    if(finalgame.game3[mx][my] != 0)
-                    {
-                        if(mx != 0)
-                        {
-                              System.out.println("99999999999999999999"+finalgame.game3[mx-1][my]);
-                            if(finalgame.game3[mx-1][my]==0)
-                            {
-                                
-                                int temp = finalgame.game3[mx-1][my];
-                                finalgame.game3[mx-1][my] = finalgame.game3[mx][my];
-                                finalgame.game3[mx][my] = temp;
-                                 System.out.println("99999999999999999999"+temp);
-                            }
-                        }
-                        if(mx != 2)
-                        {
-                            if(finalgame.game3[mx+1][my]==0)
-                            {
-                                System.out.println("111111111111111111"+finalgame.game3[mx+1][my]);
-                           
-                                int temp = finalgame.game3[mx+1][my];
-                                 System.out.println("111111111111111111"+finalgame.game3[mx][my]);
-                           
-                                finalgame.game3[mx+1][my] = finalgame.game3[mx][my];
-                                  System.out.println("111111111111111111"+finalgame.game3[mx+1][my]);
-                           
-                                finalgame.game3[mx][my] = temp;
-                                  System.out.println("111111111111111111"+finalgame.game3[mx][my]);
-                           
-                            }
-                        }
-                        if(my != 0)
-                        {
-                           
-                            if(finalgame.game3[mx][my-1]==0)
-                            {
-                                int temp = finalgame.game3[mx][my-1];
-                                finalgame.game3[mx][my-1] = finalgame.game3[mx][my];
-                                finalgame.game3[mx][my] = temp;
-                                 System.out.println("8888888888888888888888"+temp);
-                            }
-                        }
-                        if(my != 2)
-                        {
-                            if(finalgame.game3[mx][my+1]==0)
-                            {
-                                  System.out.println("2222222222222222222"+finalgame.game3[mx][my+1]);
-                                int temp = finalgame.game3[mx][my+1];
-                                finalgame.game3[mx][my+1] = finalgame.game3[mx][my];
-                                finalgame.game3[mx][my] = temp;
-                            }
-                        }
-                    }                   
-                    finalgame.g3drawX =  -1;
-                    finalgame.g3drawY =  -1;
-                   // repaint();
-                }
-            }
-                         
-                         
-                      
-            }
             }
         };
         		KeyAdapter keyProcessor = new KeyAdapter() {
@@ -216,7 +108,6 @@ public class farmer extends Canvas{
                                         gamelist.add(new GameOne(TAG.G1));
                                           farmer.page = PAGE.Game1;
                                    }
-                                   /*
                                    else if(move.a==500){
                                     move.a+=5;
                                    move.k++;
@@ -228,19 +119,6 @@ public class farmer extends Canvas{
                                         gamelist.add(new GameThree(farmer.this,TAG.G3));//this是只內部類別 所以要用farmer.this
                                           farmer.page = PAGE.Game3;
                                           System.out.println("Game3");
-                                   }
-                                   */
-                                   else if(move.a==550){
-                                            move.a+=5;
-                                   move.k++;
-                                       System.out.println("6666666");
-                                       if(gamelist.size() != 0){
-                                       gamelist.remove(0);
-                                        System.out.println("NORemoveGame4");
-                                       }
-                                        gamelist.add(new finalgame(farmer.this,TAG.G4));//this是只內部類別 所以要用farmer.this
-                                          farmer.page = PAGE.Game4;
-                                          System.out.println("Game4");
                                    }
                                }
                              }
@@ -278,23 +156,6 @@ public class farmer extends Canvas{
                                       
                                     }
                                     farmer.page = PAGE.Game3;
-                                  
-                                }
-                            }
-                            
-                                 else if (farmer.page == PAGE.Game4){
-                                if( gamelist.get(0).getWin()){
-                                    System.out.println("move to gametwo");
-                                    if(gamelist.size() == 0){
-                                        gamelist.add(new GameTwo(TAG.G4));
-                                    
-                                    }
-                                    else{
-                                        gamelist.remove(0);
-                                        gamelist.add(new GameTwo(TAG.G4));
-                                      
-                                    }
-                                    farmer.page = PAGE.Game4;
                                   
                                 }
                             }
@@ -386,21 +247,6 @@ public class farmer extends Canvas{
                 //System.out.println("XXX");
             }  
         }
-         else if(farmer.page==PAGE.Game4){
-        if( gamelist.size() == 0){
-                gamelist.add(new finalgame(this,TAG.G4));
-                System.out.println(" create new game4");
-            }
-            else if(gamelist.get(0).getTag()!=TAG.G4 ){
-                gamelist.remove(0);
-                gamelist.add(new finalgame(this,TAG.G4));
-                System.out.println(" create game4");
-            }
-            else{
-                // TODO
-                //System.out.println("XXX");
-            }  
-         }
     }
     public static void main(String[] args) {
         // TODO code application logic here

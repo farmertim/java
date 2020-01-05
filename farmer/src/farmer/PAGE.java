@@ -11,5 +11,5 @@ package farmer;
  * @author 胡維仁
  */
 public enum PAGE {
-    Move(),Game1(), Game2(), Game3(),move(),Game4()
+    Move(),Game1(), Game2(), Game3(),move()
 }

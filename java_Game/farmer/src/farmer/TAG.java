@@ -10,5 +10,5 @@ package farmer;
  * @author 胡維仁
  */
 public enum TAG {
-    m(),G1(),G2(),G3()
+    m(),G1(),G2(),G3(),G4()
 }
