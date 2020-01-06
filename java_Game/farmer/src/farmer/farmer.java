@@ -6,6 +6,7 @@
 package farmer;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -291,7 +292,7 @@ public class farmer extends Canvas{
                                     }
                                     else{
                                         gamelist.remove(0);
-                                        gamelist.add(new GameTwo(TAG.G4));
+                                        gamelist.add(new finalgame(farmer.this,TAG.G4));
                                       
                                     }
                                     farmer.page = PAGE.Game4;
@@ -314,6 +315,10 @@ public class farmer extends Canvas{
             return;
         }
         Graphics g = bs.getDrawGraphics();
+        Color color = new Color(153,255,153);
+        g.setColor(color);
+        g.fillRect(0,0,1000, 800);
+        
         if(gamelist.size() != 0){
             for( int i = 0; i <gamelist.size(); i++){
                 BasicGame bg = gamelist.get(i);

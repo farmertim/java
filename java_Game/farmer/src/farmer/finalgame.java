@@ -33,6 +33,7 @@ public class finalgame extends BasicGame{
     int game1win = 0;
     boolean g3win = false;
     boolean deuce = false;
+    protected farmer window;
     public finalgame(farmer jonah, TAG tag){
       super(tag);
       game3[0][0] = 8;
@@ -44,13 +45,16 @@ public class finalgame extends BasicGame{
             game3[2][0] = 1;
             game3[2][1] = 6;
             game3[2][2] = 0;     
-      //  farmer.window=jonah;
+            window=jonah;
     }
     public void display(Graphics g){
        
             g3win = false;
+            
+            
+            
             myframe1 = new ImageIcon("Animation/gamebg3.JPG");
-            g.drawImage(myframe1.getImage(), 0, 0, 1200, 520, null);
+            g.drawImage(myframe1.getImage(), 0, 0, 1200, 520, window);
             g.setColor(Color.black);
             g.drawRect(400, 100, 400, 350);
             g.setColor(Color.white);
@@ -64,12 +68,12 @@ public class finalgame extends BasicGame{
             g.drawLine(550, 120, 550, 420);
             g.drawLine(650, 120, 650, 420);
             myframe1 = new ImageIcon("Animation/gameback.JPG");
-            g.drawImage(myframe1.getImage(), 1070, 445, 100, 50, null);
+            g.drawImage(myframe1.getImage(), 1070, 445, 100, 50, window);
             times = 1;
             if(g3haswin)
             {
                 myframe1 = new ImageIcon("Animation/gwin.JPG");
-                g.drawImage(myframe1.getImage(), 100, 150, 250, 220, null);
+                g.drawImage(myframe1.getImage(), 100, 150, 250, 220, window);
             }
           
           else if(!g3win)
@@ -119,7 +123,7 @@ public class finalgame extends BasicGame{
                   }                 
               }
                myframe1 = new ImageIcon("Animation/gwin.JPG");
-               g.drawImage(myframe1.getImage(), 100, 150, 250, 220, null);
+               g.drawImage(myframe1.getImage(), 100, 150, 250, 220, window);
                g3haswin = true;
           }
     

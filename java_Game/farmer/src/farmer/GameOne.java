@@ -12,6 +12,7 @@ import java.util.Set;
  */
 public class GameOne extends BasicGame{
     public static int wi=0;
+  
     protected char click[] = new char[11];
     protected boolean player = false;
     public GameOne(TAG tag){
@@ -44,6 +45,7 @@ public class GameOne extends BasicGame{
         }
     }
     public void display(Graphics g){
+        int check=0;
         //System.out.println("display click 9");
         g.setColor(Color.BLACK);
         g.fillRect(0,0,1000,800);
@@ -131,7 +133,7 @@ public class GameOne extends BasicGame{
             g.drawString("X", 590, 550);
         }
       
-        
+      
             if(click[0]==click[1]&&click[1]==click[2]&&click[0]=='X'||click[0]==click[1]&&click[1]==click[2]&&click[0]=='O'){
               win(g);
             }
@@ -156,6 +158,16 @@ public class GameOne extends BasicGame{
              else if(click[2]==click[4]&&click[4]==click[6]&&click[2]=='X'||click[2]==click[4]&&click[4]==click[6]&&click[2]=='O'){
             win(g);
             }
+             else{
+               for(int i=0;i<9;i++){
+       if( click[i]!='q'){
+       check++;
+       }
+        }
+        if(check==9){
+        notwin(g);
+        }
+             }
         
         
             g.drawRect(400,150,150,150);
@@ -179,6 +191,19 @@ public class GameOne extends BasicGame{
                              g.drawString("Begin",755,190);
                              
             
+    }
+    public void notwin(Graphics g){
+     Font fnt1 = new Font(null, 1, 170);
+        g.setColor(Color.RED);
+        g.setFont(fnt1);
+        g.drawString("平",250,300);
+        g.drawString("手",550,300);
+        if( click[10] == 'W'){
+          farmer.setPage(PAGE.Game1);//Game2
+        }
+ 
+         
+    
     }
     public void win(Graphics g) {
     /*
