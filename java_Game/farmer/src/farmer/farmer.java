@@ -48,7 +48,7 @@ public class farmer extends Canvas{
     public static int score = 0;
     public ArrayList<BasicGame>gamelist = new ArrayList<BasicGame>();
     public farmer(){
-        page = PAGE.Game4;
+        page = PAGE.move;
         wind = new Window(this);
         MouseAdapter ma = new MouseAdapter(){
             @Override public void mousePressed(MouseEvent e){

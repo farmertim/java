@@ -27,13 +27,13 @@ public class finalgame extends BasicGame{
     int g3click = -1;
    public static int g3drawX = -1;
    public static int g3drawY = -1;
-    boolean g1haswin = true;
-    boolean g2haswin = true;
-    boolean g3haswin = true;
+    boolean g1haswin = false;
+    boolean g2haswin = false;
+    boolean g3haswin = false;
    public static int[][] game1 = {{0,0,0},{0,0,0},{0,0,0}};
    public static int[][] game3 = {{0,0,0},{0,0,0},{0,0,0}};
     int game1win = 0;
-    boolean g3win = true;
+    boolean g3win = false;
     boolean deuce = false;
     protected farmer window;
     public finalgame(farmer jonah, TAG tag){
@@ -58,7 +58,7 @@ public class finalgame extends BasicGame{
         
             g.drawImage(myframe1.getImage(), 0, 0, 1200, 520, window);
             g.setColor(Color.black);
-                        g.drawImage(picture1.getImage(), 100, 150, 250, 220, window);
+                    
             g.drawRect(400, 100, 400, 350);
             g.setColor(Color.white);
             g.fillRect(402, 102, 398, 348);
@@ -71,7 +71,7 @@ public class finalgame extends BasicGame{
             g.drawLine(550, 120, 550, 420);
             g.drawLine(650, 120, 650, 420);
          
-            g.drawImage(picture.getImage(), 1070, 445, 100, 50, window);
+            //g.drawImage(picture.getImage(), 1070, 445, 100, 50, window);
             times = 1;
             if(g3haswin)
             {
