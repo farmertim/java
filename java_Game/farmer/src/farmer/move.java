@@ -46,7 +46,7 @@ public class move extends BasicGame{
         //System.out.println("32323232");
         g.setColor(Color.WHITE);
         g.fillRect(0,0,1000,800);
-      
+        
             if (k == 4) {
                 k = 0;
             }
@@ -68,7 +68,8 @@ public class move extends BasicGame{
             g.drawImage(First.getImage(), 250, 60, 80, 80, window);
             g.drawImage(Second.getImage(), 550, 60, 80, 80, window);
            // g.drawImage(Three.getImage(), 1200, 60, 80, 80, window);
-           
+         
+
     }
     
 }

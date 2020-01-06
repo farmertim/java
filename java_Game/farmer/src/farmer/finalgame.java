@@ -16,6 +16,8 @@ import javax.swing.ImageIcon;
  */
 public class finalgame extends BasicGame{
      ImageIcon myframe1;
+     ImageIcon picture;
+     ImageIcon picture1;
     long times = 0;
     int prepage = 0;
     int page1 = 0;
@@ -25,17 +27,18 @@ public class finalgame extends BasicGame{
     int g3click = -1;
    public static int g3drawX = -1;
    public static int g3drawY = -1;
-    boolean g1haswin = false;
-    boolean g2haswin = false;
-    boolean g3haswin = false;
+    boolean g1haswin = true;
+    boolean g2haswin = true;
+    boolean g3haswin = true;
    public static int[][] game1 = {{0,0,0},{0,0,0},{0,0,0}};
    public static int[][] game3 = {{0,0,0},{0,0,0},{0,0,0}};
     int game1win = 0;
-    boolean g3win = false;
+    boolean g3win = true;
     boolean deuce = false;
     protected farmer window;
     public finalgame(farmer jonah, TAG tag){
       super(tag);
+        window=jonah;
       game3[0][0] = 8;
             game3[0][1] = 2;
             game3[0][2] = 5;
@@ -45,17 +48,17 @@ public class finalgame extends BasicGame{
             game3[2][0] = 1;
             game3[2][1] = 6;
             game3[2][2] = 0;     
-            window=jonah;
+          
+             g3win = false;
+               picture = new ImageIcon("Animation/gameback.JPG");
+              myframe1 = new ImageIcon("Animation/gamebg3.JPG");
+             picture1 = new ImageIcon("Animation/gwin.JPG");
     }
     public void display(Graphics g){
-       
-            g3win = false;
-            
-            
-            
-            myframe1 = new ImageIcon("Animation/gamebg3.JPG");
+        
             g.drawImage(myframe1.getImage(), 0, 0, 1200, 520, window);
             g.setColor(Color.black);
+                        g.drawImage(picture1.getImage(), 100, 150, 250, 220, window);
             g.drawRect(400, 100, 400, 350);
             g.setColor(Color.white);
             g.fillRect(402, 102, 398, 348);
@@ -67,13 +70,14 @@ public class finalgame extends BasicGame{
             g.drawLine(450, 320, 750, 320);
             g.drawLine(550, 120, 550, 420);
             g.drawLine(650, 120, 650, 420);
-            myframe1 = new ImageIcon("Animation/gameback.JPG");
-            g.drawImage(myframe1.getImage(), 1070, 445, 100, 50, window);
+         
+            g.drawImage(picture.getImage(), 1070, 445, 100, 50, window);
             times = 1;
             if(g3haswin)
             {
-                myframe1 = new ImageIcon("Animation/gwin.JPG");
-                g.drawImage(myframe1.getImage(), 100, 150, 250, 220, window);
+                System.out.println("win jklj;lkklj;");
+               
+                g.drawImage(picture1.getImage(), 100, 150, 250, 220, window);
             }
           
           else if(!g3win)
@@ -105,6 +109,7 @@ public class finalgame extends BasicGame{
           }
           else 
           {
+              System.out.println("win  ");
               Font fnt = new Font("Arial", 1, 50);
               g.setFont(fnt);
               g.setColor(Color.white);
