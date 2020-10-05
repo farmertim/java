@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">20201005</string>
+    <string name="boy">我是個男孩</string>
+    <string name="girl">我是個女孩</string>
+    <string name="degF">"\u2109"</string>
+    <string name="degC">"\u2103"</string>
+</resources>
