@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RadioButtonPractice</string>
+    <string name="boy">我是個男孩</string>
+    <string name="girl">我是個女孩</string>
+</resources>
