@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,22 +16,27 @@ public class MainActivity extends AppCompatActivity {
     ImageView grid,first;
     Local[][] local;
     ImageButton review;
+    RelativeLayout relativeLayout;
     SQLite sqLite;
+    logic logic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sqLite=new SQLite(this);
-        boolean a=sqLite.addActiveOne();
-        a=sqLite.addScoreOne();
-        sqLite.updateActive(0,1000,"987",1);
-        Toast.makeText(this, String.valueOf(a), Toast.LENGTH_SHORT).show();
+        logic=new logic();
         setLocal();
-        TouchLister touchLister=new TouchLister(this,local);
-        ButtonLister buttonLister=new ButtonLister(this,touchLister,local);
+        relativeLayout=findViewById(R.id.relativeLayout);
+        grid=new ImageView(this);
+        grid.setImageResource(R.drawable.grid);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(1050, 1050);
+        params.leftMargin =10;
+        params.topMargin =230;
+        relativeLayout.addView(grid, params);
+        sqLite=new SQLite(this,logic,this);
+        TouchLister touchLister=new TouchLister(this,local,sqLite,logic);
+        ButtonLister buttonLister=new ButtonLister(this,touchLister,local,sqLite);
         review=(ImageButton)findViewById(R.id.review);
         review.setOnClickListener(buttonLister);
-        grid=(ImageView)findViewById(R.id.grid);
         grid.setOnTouchListener(touchLister);
     }
 

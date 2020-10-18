@@ -1,2 +1,3 @@
+include ':Hu'
 include ':app'
 rootProject.name = "2048Grid"

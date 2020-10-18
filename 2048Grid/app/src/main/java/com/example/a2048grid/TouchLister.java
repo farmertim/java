@@ -12,17 +12,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
 
 public class TouchLister implements View.OnTouchListener {
+    String ActiveLocal="";
     boolean checkLong=true;
+    SQLite sqLite;
     int[] picture;
     Local[][] local;
-    TextView showGrade;
+    TextView showGrade,HG;
     ImageView[] imageViews;
     public int firstDownX=0,firstDownY=0;
     AppCompatActivity mainClass;
     RelativeLayout relativeLayout;
-    logic logic=new logic();
-    public TouchLister(AppCompatActivity mainClass,Local[][] locals){
+    logic logic;
+    public TouchLister(AppCompatActivity mainClass,Local[][] locals,SQLite sqLite,logic logic){
         this.mainClass=mainClass;
+        this.sqLite=sqLite;
+        this.logic=logic;
         picture=new int[]{R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.four,R.drawable.five,
                 R.drawable.six,R.drawable.seven,R.drawable.eight,R.drawable.nine,R.drawable.ten,R.drawable.eleven,R.drawable.twelve,
                 R.drawable.gameover
@@ -32,9 +36,22 @@ public class TouchLister implements View.OnTouchListener {
             imageViews[i]=new ImageView(mainClass);
         }
         this.local=locals;
-        logic.rand_L(local);
-        visible(locals,1);
+        if(sqLite.selectActiveLocal()==0){
 
+            logic.rand_L(local);
+        }
+        else{
+            int count=0;
+            for(int i=0;i<4;i++){
+                for(int j=0;j<4;j++){
+                    this.local[i][j].setValue(sqLite.getActiveLocal(count));
+                    count++;
+                }
+            }
+            logic.grade=sqLite.getAGrade();
+
+        }
+        visible(locals,1);
 
     }
     @Override
@@ -76,6 +93,15 @@ public class TouchLister implements View.OnTouchListener {
         //Toast.makeText(mainClass, "x:"+x+" y:"+y, Toast.LENGTH_SHORT).show();
         return true;
     }
+    public void addActiveLocal(){
+        ActiveLocal="";
+        for(int i=0;i<4;i++){
+            for(int j=0;j<4;j++){
+                ActiveLocal+=local[i][j].getValue()+" ";
+            }
+        }
+        sqLite.updateActive(1,logic.grade,ActiveLocal,1);
+    }
     public boolean CheckGameOver(){
         boolean check=false;
         for(int i=0;i<4;i++){
@@ -109,7 +135,9 @@ public class TouchLister implements View.OnTouchListener {
                         relativeLayout = mainClass.findViewById(R.id.relativeLayout);
                         imageViews[locals[i][j].getID()].setImageResource(picture[locals[i][j].getPictureUrl(locals[i][j].getValue())]);
                         showGrade = mainClass.findViewById(R.id.grade);
+                        HG=mainClass.findViewById(R.id.HG);
                         showGrade.setText("分數" + "\n" + logic.grade);
+                        HG.setText("最高分"+"\n"+sqLite.updateHeightScore(1));
                         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(200, 210);
                         params.leftMargin = locals[i][j].getX();
                         params.topMargin = locals[i][j].getY();
@@ -124,6 +152,7 @@ public class TouchLister implements View.OnTouchListener {
             params.leftMargin =100 ;
             params.topMargin = 300;
             relativeLayout.addView(imageViews[16], params);
+            sqLite.updateActive(0,logic.grade,ActiveLocal,1);
         }
     }
     public void checkGameDirection(logic logic,int location){
@@ -144,12 +173,12 @@ public class TouchLister implements View.OnTouchListener {
         }
         if(check){
             logic.rand_L(local);
+            addActiveLocal();
         }
         visible(local,1);
         checkLong=false;
     }
     public void RemoveView(){
-
         for(int i=0;i<17;i++){
             relativeLayout=mainClass.findViewById(R.id.relativeLayout);
             relativeLayout.removeView(imageViews[i]);

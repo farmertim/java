@@ -30,7 +30,7 @@
             android:textSize="30dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/HG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -76,13 +76,6 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="571dp">
-
-        <ImageView
-            android:id="@+id/grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/grid" />
-    </RelativeLayout>
+        android:layout_height="571dp"/>
 
 </LinearLayout>
